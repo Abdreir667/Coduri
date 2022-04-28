@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1638222342 source:d:\coduri\pbi\mgeom\main.cpp
+	<iostream>
+	<math.h>
+

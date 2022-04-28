@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1643824532 source:d:\coduri\fdasljk;\main.cpp
+	<iostream>
+	<fstream>
+

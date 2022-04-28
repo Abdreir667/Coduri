@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1634676963 source:d:\coduri\cadrane\main.cpp
+	<iostream>
+	<math.h>
+

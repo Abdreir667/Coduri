@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1642802539 source:d:\coduri\hjk\main.cpp
+	<iostream>
+	<fstream>
+

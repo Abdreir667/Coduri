@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1642798674 source:d:\coduri\reactivi\main.cpp
+	<iostream>
+	<fstream>
+

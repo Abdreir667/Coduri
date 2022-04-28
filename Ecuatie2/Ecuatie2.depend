@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1633193778 source:d:\coduri\ecuatie2\main.cpp
+	<iostream>
+	<math.h>
+

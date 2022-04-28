@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1641146561 source:d:\coduri\pbi\verprimcomp\main.cpp
+	<iostream>
+	<math.h>
+

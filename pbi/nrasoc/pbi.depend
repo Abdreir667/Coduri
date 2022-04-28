@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1643823987 source:d:\coduri\pbi\nrasoc\main.cpp
+	<iostream>
+	<fstream>
+

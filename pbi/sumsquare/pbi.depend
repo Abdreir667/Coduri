@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1639560749 source:d:\coduri\pbi\sumsquare\main.cpp
+	<iostream>
+	<math.h>
+

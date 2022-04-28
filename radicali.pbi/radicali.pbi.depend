@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1643028537 source:d:\coduri\radicali.pbi\main.cpp
+	<iostream>
+	<math.h>
+	<fstream>
+

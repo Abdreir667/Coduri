@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1643988044 source:d:\coduri\problema\main.cpp
+	<iostream>
+	<fstream>
+
