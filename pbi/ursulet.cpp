@@ -1,48 +1,34 @@
 #include <fstream>
-#include <vector>
 
 using namespace std;
 
 ifstream cin("ursulet.in");
 ofstream cout("ursulet.out");
-
-int n,nr,s=0,maxi=0,cap1=0,cap2=0,temp1,temp2;
+;
+int arr[100001],n,s=0,c1,c2,temp1,smax=-1000000,lung=0,lungmax;
 
 int main(void)
 {
-    cin>>n;
-    vector<long long> suma;
+    cin>>n>>lungmax;
+    for(int i=1;i<=n;i++)
+        cin>>arr[i];
     for(int i=1;i<=n;i++)
     {
-        cin>>nr;
-        if(nr>=0)
+        int k=i;
+        if(s<smax || s<0)
         {
-            s+=nr;     
-            suma.push_back(s);
-        }
-        else if(nr<0)
-        {   
-            suma.push_back(-1);
             s=0;
+            lung=0;
+            temp1=i;
         }
-    }
-    for(int i=0;i<suma.size();i++)  
-    {
-        if(suma[i]!=-1)
+        s+=arr[i];
+        lung++;
+        if(s>smax && lung>=lungmax)
         {
-            int temp1=i,temp2=i;
-            while(suma[temp1]!=-1)
-                temp1++;
-            i=temp1;
-            if(suma[temp1-1]>=maxi)
-            {
-                maxi=suma[temp1-1];
-                cap1=temp2+1;
-                cap2=temp1;
-            }
-            i=temp1;
+            smax=s;
+            c1=temp1;
+            c2=i;
         }
     }
-    cout<<maxi<<endl;
-    cout<<cap1<<" "<<cap2<<endl;
+    cout<<smax<<endl;
 }
