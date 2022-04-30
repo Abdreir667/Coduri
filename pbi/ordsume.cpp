@@ -1,5 +1,4 @@
 #include <fstream>
-#include <algorithm>
 #include <vector>
 #include <set>
 
@@ -15,10 +14,10 @@ int main(void)
     vector<long long> numere;
     set<long long> suma;
     cin >> n;
-    if(n==1)
+    if (n == 1)
     {
-        cin>>nr;
-        cout<<nr;
+        cin >> nr;
+        cout << nr;
     }
     else
     {
@@ -29,7 +28,7 @@ int main(void)
         }
         for (int i = 0; i < numere.size() - 1; i++)
             for (int j = i + 1; j < numere.size(); j++)
-                if(numere[i]!=numre[j])
+                if (numere[i] != numere[j])
                     suma.insert(numere[i] + numere[j]);
         for (auto x : suma)
             cout << x << " ";
