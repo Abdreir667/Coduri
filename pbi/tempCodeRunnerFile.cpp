@@ -1,37 +1,40 @@
 #include <fstream>
-#include <algorithm>
 #include <vector>
-#include <set>
+#include <cmath>
 
 using namespace std;
 
-ifstream cin("ordsume.in");
-ofstream cout("ordsume.out");
+ifstream cin("cufar.in");
+ofstream cout("cufar.out");
 
-long long n, nr;
+int n,k,c,nr;
+vector<bool> divizori_primi(1000000,0);
+
+int ciurul_lui_eratostene(int n,int k)
+{
+    int nrd=1,afisare;
+    divizori_primi[0]=divizori_primi[1]=0;
+    for(int i=2;i*i<=n && nrd<=k;i++)
+        if(divizori_primi[i]==0)
+        {
+            for(int j=2;j<=floor(n/i);j++)
+                divizori_primi[i*j]=1;
+            afisare=i;
+            nrd++;
+        }
+    return afisare;
+}
 
 int main(void)
 {
-    vector<long long> numere;
-    set<long long> suma;
-    cin >> n;
-    if(n==1)
+    cin>>c>>n;
+    switch (c)
     {
-        cin>>nr;
-        cout<<nr;
-    }
-    else
-    {
-        for (long long i = 1; i <= n; i++)
+        case 1:
         {
-            cin >> nr;
-            numere.push_back(nr);
+            cin>>nr>>k;
+            cout<<ciurul_lui_eratostene(nr,k);
         }
-        for (int i = 0; i < numere.size() - 1; i++)
-            for (int j = i + 1; j < numere.size(); j++)
-                if(numere[i]!=numre[j])
-                    suma.insert(numere[i] + numere[j]);
-        for (auto x : suma)
-            cout << x << " ";
     }
+
 }

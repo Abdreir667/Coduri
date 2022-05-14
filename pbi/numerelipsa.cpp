@@ -20,7 +20,6 @@ int main() {
             }
         }
     }
-    cout<<nr<<" ";
     if(nr>0)
     {
         int o=0;
