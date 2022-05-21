@@ -1,13 +1,9 @@
-#include <fstream>
+#include <iostream>
+#include <vector>
 
 using namespace std;
 
-ifstream cin("maxprimeintreele.in");
-ofstream cout("maxprimeintreele.out");
-
-float n,afisare;
-float maxi=0;
-int poz=0,poz_cur=0;
+int n;
 
 int phi(int n)
 {
@@ -26,16 +22,9 @@ int phi(int n)
     }
     return rest;
 }
+
 int main(void)
 {
-    while(cin>>n)
-    {
-        if(n/phi(n)>maxi)
-        {
-                maxi=n/phi(n);
-                afisare=n;
-        }
-
-    }
-    cout<<afisare<<" ";
+    cin>>n;
+    cout<<phi(n)<<endl;
 }

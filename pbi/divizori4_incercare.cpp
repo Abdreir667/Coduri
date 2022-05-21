@@ -15,17 +15,27 @@ vector<int> divizori;
 vector<int> numere_divizori;
 vector<int>::iterator it;
 
-int nrd(int n)
+int nrd(int number)
 {
-    int nrd = 2;
-    for (int i = 2; i <= sqrt(n); i++)
-        if (n % i == 0)
-            if (n / i == i)
-                nrd++;
-            else
-                nrd += 2;
-    return nrd;
-}
+
+    int count = 0;
+    int numberCopy = number;
+    int remainder;
+     
+    while (numberCopy != 0)
+    {
+        remainder = numberCopy%10;
+        numberCopy = numberCopy/10;
+        if (remainder != 0)
+            if ((number%remainder) == 0)
+            {
+                count++;
+            }
+    }
+    return count;
+}        
+
+
 int main(void)
 {
     cin >> n >> c;
