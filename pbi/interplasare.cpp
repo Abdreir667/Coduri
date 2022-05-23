@@ -42,8 +42,6 @@ int main(void)
     for(int i=1;i<=k;i++) 
     {
         cout<<rez[i]<<" ";
-        if(i%20==0)
-            cout<<endl;
     }
     return 0;
 }

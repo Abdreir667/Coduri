@@ -47,19 +47,16 @@ void quicksort(vector<int> &arr, vector<int> &arr2, int st, int dr)
 
 bool different_check(int n)
 {
-    vector<int> temporal;
     int lungime = 0;
     int aux = n;
+    unordered_set<int> s;
     while (n)
     {
         int nr = n % 10;
-        temporal.push_back(nr);
+        s.insert(nr);
         lungime++;
         n /= 10;
     }
-    unordered_set<int> s;
-    for (int i = 0; i < lungime; i++)
-        s.insert(temporal[i]);
     if (s.size() == 2)
         return true;
     else
@@ -79,6 +76,7 @@ int main(void)
     for (int i = 0; i < 10; i++)
         numere.push_back(i);
     quicksort(aparitii, numere, 0, 9);
+    //sort(aparitii.begin(), aparitii.end());
     for (auto i = 0; i < 9; i++)
     {
         if (aparitii[i] == aparitii[i + 1])
@@ -99,6 +97,7 @@ int main(void)
     for (auto x : numere)
         cout << x << " ";
     cout << endl;
+    
     for (auto x : numarecu2)
         cout << x << " ";
 }
