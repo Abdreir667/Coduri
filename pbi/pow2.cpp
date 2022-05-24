@@ -1,76 +1,79 @@
+#include <vector>
 #include <fstream>
-#include <math.h>
+#include <algorithm>
 
 using namespace std;
 
-ifstream cin("pow2.in"); 
+ifstream cin("pow2.in");
 ofstream cout("pow2.out");
 
-long long puteri[32];
-int arr1[100001],copie[100001],maxi=0,mini=2147483647;
-int nre=0;
+vector<unsigned int> numere(100001);
+vector<unsigned int> puteri_2(32,1);
+int n,nre=0;
 
-void quicksort(int arr[],int st,int dr)
+int binarysearch(int val,int st,int dr)
 {
-    if(st<dr)
-    {
-        int m=(st+dr)/2;
-        swap(arr[st],arr[m]);
-        int i=st,j=dr,d=0;
-        while(i<j)
-        {
-            if(arr[i]>arr[j])
-            {
-                swap(arr[i],arr[j]);
-                d=1-d;
-            }
-            i+=d;
-            j-=1-d;
-        }
-        quicksort(arr,st,i-1);
-        quicksort(arr,i+1,dr);
-    }
-}
-
-void populare(void)
-{
-    int k=0,i=0,temp;
-    do
-        puteri[++k]=pow(2,i++);
-    while(k<=31 && puteri[k]<=maxi);
-}
-
-void binary_searchmax(int arr[],int st,int dr,int nr)
-{
-    int p=0;
+    int m,poz=-1;
     while(st<=dr)
     {
-        int m=(st+dr)/2;
-        if(arr[m]<nr)
-            st=m+1;
-        else 
+        m=(st+dr)/2;
+        if(numere[m]==val)
         {
-            p=m;
-            dr=m-1;
+            poz=m;
+            break;
         }
+        if(numere[m]<val)
+            st=m+1;
+        else dr=m-1;
     }
-    cout<<dr<<" "<<st<<endl;
+    return poz;
+}
+
+void generare(void)
+{
+    for(int i=1;i<=31;i++)
+        puteri_2[i]=puteri_2[i-1]*2;
 }
 
 int main(void)
 {
-    int n;
+    ios::sync_with_stdio(false);
     cin>>n;
-    for(int i=1;i<=n;i++)
-    {
-        cin>>arr1[i];
-        copie[i]=arr1[i];
-        maxi=max(maxi,arr1[i]);
-        mini=min(mini,arr1[i]);
-    }
-    populare();
-    quicksort(copie,1,n);
-    for(int i=1;i<=n;i++)
-        binary_searchmax(copie,1,n,puteri[i]);
-    //cout<<nre<<endl;
+    for(int i=0;i<n;i++)
+        cin>>numere[i];
+    sort(numere.begin(),numere.end());
+    for(int i=0;i<n-1;i++)
+        for(int j=31;j>=1;j--)
+        {
+            if(puteri_2[j]<=numere[i])
+                break;
+            unsigned int valoare=puteri_2[j]-numere[i];
+            if(i<n-1)
+            {
+                int poz=binarysearch(valoare,i+1,n-1);
+                if(poz=-1)
+                {
+                    nre++;
+                    int k=poz-1;
+                    while(k>i)
+                    {
+                        if(numere[k]==numere[poz])
+                            nre++;
+                        if(numere[k]<numere[poz])   
+                            break;
+                        k--;
+                    }
+                    k=poz+1;
+                    while(k<n)
+                    {
+                        if(numere[k]==numere[poz])
+                            nre++;
+                        if(numere[j]>numere[poz])
+                            break;
+                        k++;
+                    }
+                }
+            }
+        }
+    cout<<nre<<endl;
 }
