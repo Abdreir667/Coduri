@@ -7,8 +7,7 @@ using namespace std;
 ifstream cin("pow2.in");
 ofstream cout("pow2.out");
 
-vector<unsigned int> numere(100001);
-vector<unsigned int> puteri_2(32,1);
+unsigned int numere[100001],puteri_2[33];
 int n,nre=0;
 
 int binarysearch(int val,int st,int dr)
@@ -31,7 +30,8 @@ int binarysearch(int val,int st,int dr)
 
 void generare(void)
 {
-    for(int i=1;i<=31;i++)
+    puteri_2[0]=1;
+    for(int i=1;i<=31;++i)
         puteri_2[i]=puteri_2[i-1]*2;
 }
 
@@ -39,11 +39,11 @@ int main(void)
 {
     ios::sync_with_stdio(false);
     cin>>n;
-    for(int i=0;i<n;i++)
+    for(int i=0;i<n;++i)
         cin>>numere[i];
-    sort(numere.begin(),numere.end());
-    for(int i=0;i<n-1;i++)
-        for(int j=31;j>=1;j--)
+    sort(numere,numere+n);
+    for(int i=0;i<n-1;++i)
+        for(int j=31;j>=1;--j)
         {
             if(puteri_2[j]<=numere[i])
                 break;
@@ -68,7 +68,7 @@ int main(void)
                     {
                         if(numere[k]==numere[poz])
                             nre++;
-                        if(numere[j]>numere[poz])
+                        if(numere[k]>numere[poz])
                             break;
                         k++;
                     }
