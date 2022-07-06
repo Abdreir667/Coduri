@@ -1,0 +1,6 @@
+use std::io;
+
+int main()
+{
+    println!("ma-ta e curva");
+}

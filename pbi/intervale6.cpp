@@ -1,9 +1,9 @@
-#include <fstream>
+#include <stdio.h>
 
 using namespace std;
 
-ifstream cin("intervale6.in");
-ofstream cout("intervale6.out");
+FILE *in= fopen("intervale6.in", "r");
+FILE *out= fopen("intervale6.out", "w");
 
 int n,arr[10001],x,y,nre=0;
 
@@ -20,18 +20,19 @@ int binarysearch(int arr[],int st,int dr,int nr)
         }
         else dr=m-1;
     }
-    return p;
+    return 1;
 }
 
 int main(void)
 {
-    cin>>n;
+    fscanf(in, "%d",&n);
     for(int i=1;i<=n;i++)
-        cin>>arr[i];
-    while(cin>>x>>y)  
+        fscanf(in,"%d",&arr[i]);
+    while(in!=EOF) 
     {
+
         if(binarysearch(arr,1,n,y)-binarysearch(arr,1,n,x-1)==0)
             nre++;
     }
-    cout<<nre;
+    fprintf(out,"%d\n",nre);
 }

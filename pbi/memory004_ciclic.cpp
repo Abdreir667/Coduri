@@ -80,4 +80,5 @@ int main(void)
             lmax = lung_temporara;
     }
     cout << lmax << endl;
+    return 0;
 }
